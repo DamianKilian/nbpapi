@@ -1,0 +1,27 @@
+{% extends 'nbpapi/layout.html.twig' %}
+
+{% block title %}nbpapi
+{% endblock %}
+
+{% block body %}
+	{{ form(form) }}
+		{% if responseData %}
+			<table>
+				<thead>
+					<tr>
+						{% for value in responseDataHeaders %}
+							<th>{{ value }}</th>
+						{% endfor %}
+					</tr>
+				</thead>
+				<tbody>
+					{% for sub_array in responseData %}
+						<tr>
+							{% for value in sub_array %}
+								<td>{{ value }}</td>
+							{% endfor %}
+						</tr>
+					{% endfor %}
+				</tbody>
+			{% endif %}
+		{% endblock %}
